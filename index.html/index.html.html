@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loriane Belangel | Portfolio</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff0f6;
+            color: #4b263b;
+        }
+
+        /* NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 3px 20px rgba(180,70,120,0.12);
+        }
+
+        nav {
+            max-width: 1150px;
+            height: 75px;
+            margin: auto;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        .logo span {
+            color: #f09ac0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #552d43;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: #d63384;
+        }
+
+        .menu {
+            display: none;
+            font-size: 25px;
+            color: #d63384;
+            cursor: pointer;
+        }
+
+        /* HOME */
+        .home {
+            min-height: 100vh;
+            padding: 120px 8% 70px;
+            position: relative;
+            overflow: hidden;
+            background: #ffe6f0;
+        }
+
+        /* Decorative circles */
+        .circle1,
+        .circle2,
+        .circle3 {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .circle1 {
+            width: 350px;
+            height: 350px;
+            background: #f7b6d2;
+            top: -120px;
+            right: -100px;
+        }
+
+        .circle2 {
+            width: 220px;
+            height: 220px;
+            background: #fbd1e1;
+            bottom: -70px;
+            left: -60px;
+        }
+
+        .circle3 {
+            width: 90px;
+            height: 90px;
+            background: #e98bb5;
+            top: 180px;
+            left: 7%;
+        }
+
+        .home-container {
+            max-width: 1150px;
+            min-height: 75vh;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* PICTURE */
+        .home-image {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            animation: picture 1.2s ease;
+        }
+
+        .photo-frame {
+            width: 360px;
+            height: 430px;
+            background: white;
+            padding: 12px;
+            border-radius: 180px 180px 30px 30px;
+            box-shadow: 0 20px 50px rgba(180,70,120,0.25);
+            transform: rotate(-3deg);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 170px 170px 22px 22px;
+        }
+
+        /* TEXT */
+        .home-text {
+            width: 55%;
+            animation: text 1.2s ease;
+        }
+
+        .small-title {
+            color: #d63384;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .home-text h1 {
+            font-size: 65px;
+            line-height: 1.05;
+            color: #472438;
+            margin-bottom: 15px;
+        }
+
+        .home-text h1 span {
+            color: #d63384;
+        }
+
+        .home-text h2 {
+            font-size: 25px;
+            color: #8f4569;
+            margin-bottom: 20px;
+        }
+
+        .home-text p {
+            max-width: 570px;
+            color: #705467;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn-main {
+            background: #d63384;
+            color: white;
+            box-shadow: 0 8px 20px rgba(214,51,132,.25);
+        }
+
+        .btn-main:hover {
+            background: #b9276c;
+            transform: translateY(-4px);
+        }
+
+        .btn-outline {
+            border: 2px solid #d63384;
+            color: #d63384;
+        }
+
+        .btn-outline:hover {
+            background: #d63384;
+            color: white;
+        }
+
+        /* SOCIAL ICONS */
+        .socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .socials a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: white;
+            color: #d63384;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,.08);
+            transition: .3s;
+        }
+
+        .socials a:hover {
+            background: #d63384;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* SECTIONS */
+        section:not(.home) {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+        }
+
+        .section-title span {
+            color: #d63384;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+            color: #806475;
+        }
+
+        /* GALLERY */
+        .gallery {
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 550px;
+            margin: auto;
+        }
+
+        .gallery-box {
+            height: 500px;
+            padding: 10px;
+            background: #ffe0ec;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.1);
+        }
+
+        .gallery-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        /* SKILLS */
+        .skills {
+            background: #fff0f6;
+        }
+
+        .skills-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .skill-box {
+            background: white;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.07);
+            transition: .3s;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-box i {
+            font-size: 45px;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        .skill-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill-box p {
+            color: #806475;
+            line-height: 1.5;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #ffe6f0;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 30px 15px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,.08);
+        }
+
+        .contact-box i {
+            font-size: 30px;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 8px;
+        }
+
+        .contact-box p {
+            color: #806475;
+            word-break: break-word;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #472438;
+            color: white;
+        }
+
+        footer span {
+            color: #f5a4c8;
+        }
+
+        /* ANIMATION */
+        @keyframes picture {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes text {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+
+            .menu {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: -100%;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                text-align: center;
+                gap: 0;
+                transition: .4s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                padding: 18px;
+            }
+
+            .home {
+                padding-top: 110px;
+            }
+
+            .home-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .home-image,
+            .home-text {
+                width: 100%;
+            }
+
+            .photo-frame {
+                width: 270px;
+                height: 330px;
+            }
+
+            .home-text h1 {
+                font-size: 45px;
+            }
+
+            .home-text h2 {
+                font-size: 21px;
+            }
+
+            .home-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .socials {
+                justify-content: center;
+            }
+
+            .skills-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-box {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+
+            <div class="logo">
+                Loriane Belangel<span> </span>
+            </div>
+
+            <div class="menu" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- HOME PAGE -->
+    <section class="home" id="home">
+
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+
+        <div class="home-container">
+
+            <!-- ONE PICTURE -->
+            <div class="home-image">
+
+                <div class="photo-frame">
+                    <img src="kulot.jpg"
+                         alt="Loriane Belangel">
+                </div>
+
+            </div>
+
+
+            <!-- INTRODUCTION -->
+            <div class="home-text">
+
+                <div class="small-title">
+                    WELCOME TO MY PORTFOLIO
+                </div>
+
+                <h1>
+                    Hi, I'm<br>
+                    <span>Loriane </span>
+                </h1>
+
+                <h2>
+                    Student & Aspiring Web Designer
+                </h2>
+
+                <p>
+                    I am a student who enjoys learning,
+                    creating, and exploring the world of
+                    web design. Welcome to my personal
+                    portfolio where you can see my picture,
+                    skills, and contact information.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#gallery" class="btn btn-main">
+                        <i class="fas fa-image"></i>
+                        My Picture
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        Contact Me
+                    </a>
+
+                </div>
+
+                <div class="socials">
+
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="mailto:lorianebelangel@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+
+        <div class="section-title">
+            <h2>My <span>Picture</span></h2>
+            
+        </div>
+
+        <div class="gallery-container">
+
+            <div class="gallery-box">
+                <img src="lor.jpg"
+                     alt="Loriane Belangel">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+
+        <div class="section-title">
+            <h2>My <span>Skills</span></h2>
+            <p>Things I am learning and improving.</p>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill-box">
+                <i class="fab fa-html5"></i>
+                <h3>HTML</h3>
+                <p>Creating the structure of websites.</p>
+            </div>
+
+            <div class="skill-box">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS</h3>
+                <p>Designing beautiful and responsive pages.</p>
+            </div>
+
+            <div class="skill-box">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+                <p>Adding interaction and animation to websites.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="section-title">
+            <h2>Contact <span>Me</span></h2>
+            <p>Feel free to reach out to me.</p>
+        </div>
+
+        <div class="contact-container">
+
+            <div class="contact-box">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>lorianebelangel@gmail.com</p>
+            </div>
+
+            <div class="contact-box">
+                <i class="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <p>09945106911</p>
+
+    </section>
+
+
+    <footer>
+        <p>
+         <span>urloveriane Belangel</span>.
+            
+        </p>
+    </footer>
+
+
+    <script>
+
+        function toggleMenu() {
+            document
+                .getElementById("navLinks")
+                .classList.toggle("active");
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+
+
